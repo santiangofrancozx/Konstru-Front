@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Otros estilos globales */
+
 :root {
+  --radius: 0.875rem;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -17,6 +22,7 @@
 }
 
 body {
+  font-family: var(--font-roboto), sans-serif;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,6 +30,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+* {
+  font-family: var(--font-roboto), sans-serif;
 }
 
 @layer utilities {
