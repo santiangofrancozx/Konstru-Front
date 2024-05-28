@@ -11,8 +11,10 @@ const Homedark = () =>  {
   useEffect(() => {
     const fetchProyectos = async () => {
       try {
-        const response = await axios.get('http://localhost:8082/projects', { withCredentials: true });
+        const response = await axios.get('api/projects');
         setProyectos(response.data);
+        console
+    
       } catch (error) {
         console.error('Error al obtener los proyectos:', error);
       }
@@ -20,7 +22,7 @@ const Homedark = () =>  {
     fetchProyectos();
   }, []);
   return (
-    (<div className="bg-gray-900 text-gray-200 font-[Roboto]">
+    <div className="bg-gray-900 text-gray-200 font-[Roboto]">
       <header className="py-4 px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
@@ -100,7 +102,7 @@ const Homedark = () =>  {
       <footer className="py-6 px-6 text-center font-[Roboto]">
         <p className="text-gray-400">© 2023 Awesome Konstru. Todos los derechos reservados.</p>
       </footer>
-    </div>)
+    </div>
   );
 }
 

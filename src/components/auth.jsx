@@ -9,7 +9,7 @@ export function useAuth() {
     const checkAuth = async () => {
       try {
         // Verifica el token con una llamada a una ruta protegida de la API, por ejemplo /checkToken
-        const response = await axios.get('http://localhost:8082/checkToken', { withCredentials: true });
+        const response = await axios.get('api/checkToken');
         if (response.status == 200){
           setAuthenticated(true);
         } else{

@@ -24,7 +24,7 @@ const CreateProjectDrawer = ({ buttonClassName }) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8082/insertProject', projectData, { withCredentials: true });
+      const response = await axios.post('api/insertProject', projectData);
       console.log('Proyecto creado:', response.data);
       // Aquí puedes agregar lógica adicional, como cerrar el Drawer o mostrar un mensaje de éxito
       setIsOpen(false);
