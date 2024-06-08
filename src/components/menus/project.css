@@ -1,0 +1,48 @@
+.proyecto-container {
+    /* Estilos para el contenedor del proyecto */
+    background-color: #D3D3D3;
+  }
+  
+  .proyecto-nombre {
+    /* Estilos para el nombre del proyecto */
+    color: #333;
+  }
+  
+  .proyecto-estado {
+    /* Estilos para el estado del proyecto */
+    color: #000000;
+  }
+  
+  .proyecto-fecha {
+    /* Estilos para la fecha de creación del proyecto */
+    color: #000000;
+  }
+  
+  .proyecto-acciones {
+    /* Estilos para la sección de acciones del proyecto */
+  }
+  
+  .proyecto-boton {
+    /* Estilos para el botón del proyecto */
+  }
+  
+  .proyecto-icono {
+    /* Estilos para el icono del botón */
+  }
+  
+  .proyecto-menu {
+    /* Estilos para el menú desplegable */
+  }
+  
+  .proyecto-menu-item {
+    /* Estilos para los ítems del menú */
+  }
+  
+  .proyecto-menu-boton {
+    /* Estilos para los botones del menú */
+  }
+  
+  .proyecto-dot-icon {
+    /* Estilos específicos para el icono de puntos */
+  }
+  

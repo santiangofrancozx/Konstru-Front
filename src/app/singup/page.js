@@ -1,5 +1,5 @@
 'use client'
-import SignUp from '@/components/singup'; // Ruta absoluta al componente homee
+import SignUp from '@/components/pages/singup'; // Ruta absoluta al componente homee
 
 
 export default function ProjectsRender() {

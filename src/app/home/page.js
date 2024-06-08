@@ -1,6 +1,6 @@
 'use client'
-import Homedark from '@/components/Homedark'; // Ruta absoluta al componente homee
-import PrivateRoute from "@/components/PrivateRoute";
+import Homedark from '@/components/pages/homedark'; // Ruta absoluta al componente homee
+import PrivateRoute from "@/components/auth/PrivateRoute";
 
 export default function HomePage() {
   return (

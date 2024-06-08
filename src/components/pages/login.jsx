@@ -12,7 +12,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/validateUser', { email, pass });
+      const response = await axios.post('/api/user/validate', { email, pass });
       if (response.data) {
         router.push('/home'); // Ruta protegida
       } else {

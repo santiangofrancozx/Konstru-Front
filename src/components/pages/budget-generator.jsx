@@ -3,23 +3,22 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent, DropdownMenu, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuCheckboxItem } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, TableFooter, Table } from "@/components/ui/table";
-import { DrawerClose, DrawerFooter, DrawerHeader, DrawerTitle, DrawerDescription, DrawerContent, Drawer, DrawerTrigger } from "@/components/ui/drawer";
-import { Label } from "@/components/ui/label";
-import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select";
+// import { DrawerClose, DrawerFooter, DrawerHeader, DrawerTitle, DrawerDescription, DrawerContent, Drawer, DrawerTrigger } from "@/components/ui/drawer";
+// import { Label } from "@/components/ui/label";
+// import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select";
 import axios from 'axios';
-import { APUcard } from './apucard';
+import { APUcard } from '@/components/cards/apucard';
 import { TrashIcon } from 'lucide-react';
-import { Dialog, DialogTitle, DialogContent, DialogActions } from '@radix-ui/react-dialog';
+// import { Dialog, DialogTitle, DialogContent, DialogActions } from '@radix-ui/react-dialog';
 import { useRouter } from 'next/navigation';
-import { NewItemForm } from '@/components/NewItemFormDrawer'
-import { NewActivityForm } from '@/components/NewActivityFormDrawer'
+import { NewItemForm } from '@/components/menus/NewItemFormDrawer'
+// import { NewActivityForm } from '@/components/NewActivityFormDrawer'
+import { Navbar } from '@/components/navbars/navbar';
 
-
-
-
-function BudgetGenerator() {
+function BudgetGenerator({nameProject, idProject}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [resultados, setResultados] = useState([]);
+  const [resultados2, setResultados2] = useState([]);
   const [budgetItems, setBudgetItems] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [showNewItemForm, setShowNewItemForm] = useState(false); 
@@ -28,9 +27,12 @@ function BudgetGenerator() {
   const ActivityHandler = async (e) => {
     e.preventDefault();
     try {
-      const id = document.getElementById("codigo").value;
-      const url = `api/consultaActividad?id=${id}`;
+      const id = document.getElementById('codigo').value;
+      const url = `/api/activities/get?id=${id}`; // Corrected URL
+      const url2 = "/api/activities/user/get"; // Corrected URL
+  
       const response = await axios.get(url);
+      const response2 = await axios.get(url2);
   
       if (response.status === 200) {
         setResultados(response.data);
@@ -38,12 +40,19 @@ function BudgetGenerator() {
         setResultados([]);
         alert('Error: ' + response.status);
       }
+  
+      if (response2.status === 200) {
+        setResultados2(response2.data);
+      } else {
+        setResultados2([]);
+        alert('Error: ' + response2.status);
+      }
     } catch (error) {
       setResultados([]);
       console.error('Error:', error);
     }
   };
-
+  
  
 
   useEffect(() => {
@@ -78,34 +87,10 @@ function BudgetGenerator() {
   };
 
   return (
-    <div key="1" className="flex flex-col h-screen">
-      <header className="bg-gray-900 text-white py-4 px-6">
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <h1 className="text-2xl font-bold">Construction Budget Generator</h1>
-          <div className="lg:flex">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="bg-gray-200 hover:bg-gray-300 text-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200">
-                  Menu
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
-                <NewItemForm buttonClassName={"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-gray-100 focus:text-gray-900 hover:bg-gray-100 hover:text-gray-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-50"}/>
-                <DropdownMenuItem onClick={()=> handleRedirectWindow('/activity')}>New Activity</DropdownMenuItem>
-                <DropdownMenuItem onClick={()=> handleRedirect('/home')}>Home</DropdownMenuItem>
-                <DropdownMenuItem>About</DropdownMenuItem>
-                <DropdownMenuItem>Services</DropdownMenuItem>
-                <DropdownMenuItem>Contact</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            
-          </div>
-        </div>
-        
-      </header>
-     
-      <div className="flex-1 flex flex-col lg:flex-row">
-        <div className="bg-gray-100 dark:bg-gray-800 p-4 lg:p-6 border-b lg:border-r lg:border-b-0 border-gray-200 dark:border-gray-700 overflow-y-auto">
+    <div key="1" className="flex flex-col h-screen ">
+      <Navbar/>
+      <div className="flex-1 flex flex-col lg:flex-row dark:bg-zinc-800 bg-zinc-800 text-white">
+        <div className="p-4 lg:p-6 border-b lg:border-r lg:border-b-0 border-gray-200 dark:border-gray-700 overflow-y-auto">
           <div className="flex items-center mb-4">
             <div className="relative flex-1">
               <form onSubmit={ActivityHandler}>
@@ -130,17 +115,39 @@ function BudgetGenerator() {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-          <h2 className="text-lg font-bold mb-4">Construction Items</h2>
-          <CardList resultados={resultados} onAddToBudget={addToBudget} />
+          <h2 className="text-lg font-bold mb-4">Construction Activities</h2>
+          <div>
+            <CardList2 resultados={resultados} resultados2={resultados2} onAddToBudget={addToBudget} />
+          </div>
+          {/* <div>
+            <CardList resultados={resultados2} onAddToBudget={addToBudget} />
+          </div> */}
         </div>
-        <div className="flex-1 bg-gray-100 dark:bg-gray-800 p-4 lg:p-6 overflow-y-auto">
+        <div className="flex-1 p-4 lg:p-6 overflow-y-auto">
           <h2 className="text-lg font-bold mb-4">
             Budget
-            <Button className="ml-4" size="sm" variant="outline">
+            <Button className="ml-4" variant="outline">
               <DownloadIcon className="w-4 h-4 mr-2" />
               Export
             </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="ml-4" size="sm" variant="outline">
+                <MenuIcon className="w-4 h-4 mr-2" />
+                  Menu
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <NewItemForm buttonClassName={"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-gray-100 focus:text-gray-900 hover:bg-gray-100 hover:text-gray-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-cyan-600 dark:focus:text-gray-50 dark:hover:bg-cyan-600 dark:hover:text-gray-50"}/>
+                <DropdownMenuItem onClick={()=> handleRedirectWindow('/activity')}>New Activity</DropdownMenuItem>
+                <DropdownMenuItem onClick={()=> handleRedirect('/home')}>Home</DropdownMenuItem>
+                <DropdownMenuItem>About</DropdownMenuItem>
+                <DropdownMenuItem>Services</DropdownMenuItem>
+                <DropdownMenuItem>Contact</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>  
           </h2>
+          <h2 className="text-lg font-bold mb-4">{nameProject}</h2>
           <div className="border rounded-lg overflow-hidden">
             <Table>
               <TableHeader>
@@ -460,11 +467,11 @@ export function ItemCard({ icon: Icon, title, id, price,  onAddToBudget }) {
   return (
     <>
       <div
-        className="bg-white dark:bg-gray-900 shadow-md rounded-lg p-4 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+        className="bg-white dark:bg-slate-700 shadow-md rounded-lg p-4 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         onClick={handleCardClick}
       >
         <div className="flex items-center">
-          <Icon className="w-8 h-8 mr-4 text-blue-500" />
+          <Icon className="w-8 h-8 mr-4 text-neutral-300" />
           <div>
             <h3 className="text-lg font-bold">{title}</h3>
             <p className="text-gray-500 dark:text-gray-400">{id}</p>
@@ -476,11 +483,52 @@ export function ItemCard({ icon: Icon, title, id, price,  onAddToBudget }) {
     </>
   );
 }
-
-export function CardList({ resultados, onAddToBudget }) {
+export function CardList2({ resultados, resultados2, onAddToBudget }) {
   return (
     <div className="max-w-md overflow-x-hidden overflow-y-scroll max-h-[50vh]">
       <div className="flex flex-col gap-4">
+        {resultados.map((item) => (
+          <div key={item.ID} className="w-full">
+            <ItemCard
+              icon={HammerIcon}
+              title={item.Descripcion}
+              id={item.ID}
+              price={item.PrecioBase}
+              onAddToBudget={onAddToBudget}
+            />
+          </div>
+        ))}
+        {resultados2.map((item) => (
+          <div key={item.ID} className="w-full">
+            <ItemCard
+              icon={HammerIcon}
+              title={item.Descripcion}
+              id={item.ID_Actividad_Usuario}
+              price={item.PrecioBase}
+              onAddToBudget={onAddToBudget}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function CardList({ resultados, resultados2, onAddToBudget }) {
+  return (
+    <div className="max-w-md overflow-x-hidden overflow-y-scroll max-h-[50vh]">
+      <div className="flex flex-col gap-4">
+      {resultados2.map((item) => (
+          <div key={item.id} className="w-full">
+            <ItemCard
+              icon={HammerIcon}
+              title={item.Descripcion}
+              id={item.ID}
+              price={item.PrecioBase}
+              onAddToBudget={onAddToBudget}
+            />
+          </div>
+        ))}
         {resultados.map((item) => (
           <div key={item.id} className="w-full">
             <ItemCard
@@ -492,6 +540,7 @@ export function CardList({ resultados, onAddToBudget }) {
             />
           </div>
         ))}
+        
       </div>
     </div>
   );

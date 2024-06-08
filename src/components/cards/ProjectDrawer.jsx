@@ -16,17 +16,16 @@ const CreateProjectDrawer = ({ buttonClassName }) => {
   const router = useRouter();
 
   const handleCreateProject = async () => {
-    const projectData = { // Necesitas generar este ID según tu lógica
+    const projectData = {
       name,
       descripcion: description,
-      valor: 0, // Si tienes un campo de valor, debes agregarlo al formulario y actualizarlo
-      tipo_obra: type
+      valor: 0, // Actualiza este campo según sea necesario
+      tipo_obra: type,
     };
 
     try {
       const response = await axios.post('api/insertProject', projectData);
       console.log('Proyecto creado:', response.data);
-      // Aquí puedes agregar lógica adicional, como cerrar el Drawer o mostrar un mensaje de éxito
       setIsOpen(false);
       router.push('/search');
     } catch (error) {
@@ -41,7 +40,7 @@ const CreateProjectDrawer = ({ buttonClassName }) => {
           Crear Nuevo Proyecto
         </button>
       </DrawerTrigger>
-      <DrawerContent className="bg-gray-900 text-gray-50 p-6 rounded-lg shadow-lg">
+      <DrawerContent className="bg-slate-900 text-gray-50 p-6 rounded-lg shadow-lg">
         <DrawerHeader>
           <DrawerTitle className="text-2xl font-bold">Nuevo Proyecto de Construcción</DrawerTitle>
           <DrawerDescription className="text-gray-400">Ingrese los detalles de su proyecto.</DrawerDescription>

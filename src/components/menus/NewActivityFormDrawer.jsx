@@ -7,7 +7,7 @@ import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, TableFooter, Table } from "@/components/ui/table";
 import { TrashIcon } from 'lucide-react';
 import { Card } from "@/components/ui/card";
-import {CardList, ItemCard} from "@/components/budget-generator"
+import {CardList, ItemCard} from "@/components/pages/budget-generator"
 import axios from 'axios';
 import { fromJSON } from "postcss";
 

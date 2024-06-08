@@ -15,7 +15,7 @@ export function APUcard({ onClose, id, onAddToBudget }) {
  
 
   useEffect(() => {
-    axios.get(`api/consultaApu?id=${id}`)
+    axios.get(`api/activities/apu/get?id=${id}`)
       .then(response => {
         setData(response.data);
       })
