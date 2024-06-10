@@ -79,22 +79,22 @@ export function Navbar({ username, sigla }) {
           </SheetTrigger>
           <SheetContent side="left" className="text-white bg-sky-950"> {/* Cambia el color de fondo del menú desplegable */}
             <div className="grid gap-2 py-6">
-              <Link className="flex w-full items-center py-2 text-lg font-semibold text-white" href="/home">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/home">
                 Home
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/search">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold hover:text-cyan-300" href="/search">
                 Budget Generator
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold text-white" href="/user">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/user">
                 User Profile
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold text-white" href="/pricing">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/pricing">
                 Pricing
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold text-white" href="/dashboard">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/dashboard">
                 My Projects
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>

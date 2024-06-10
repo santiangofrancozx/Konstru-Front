@@ -1,16 +1,13 @@
-import Link from "next/link"
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
 import { DropdownMenuTrigger, DropdownMenuContent, DropdownMenu, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuLabel, DropdownMenuCheckboxItem } from "@/components/ui/dropdown-menu"
-import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { useRouter } from 'next/navigation';
-import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
 import { Navbar } from "@/components/navbars/navbar"
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ProjectCard from "@/components/cards/ProjectCard"
+import Proyecto from "../menus/project";
 export function ViewProjects() {
   const router = useRouter();
   const [proyectos, setProyectos] = useState([]);
@@ -36,29 +33,28 @@ export function ViewProjects() {
 
     (<div key="1" className="flex flex-col min-h-screen">
       <Navbar username={user.Nombre}/>
-      <main className="flex-1 bg-gray-100 dark:bg-gray-800 py-8 px-4 md:px-8">
+      <main className="flex-1 bg-gray-100 dark:bg-zinc-800 py-8 px-4 md:px-8">
         <div className="container mx-auto">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
               <Input
-                className="bg-white dark:bg-gray-950 px-4 py-2 rounded-md w-full max-w-md"
+                className="bg-white dark:bg-zinc-600 px-4 py-2 rounded-md w-full max-w-md"
                 placeholder="Search projects..." />
               <Button size="icon" variant="ghost">
-                <SearchIcon className="w-5 h-5" />
+                <SearchIcon className="w-5 h-5 text-white" />
                 <span className="sr-only">Search</span>
               </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button className="flex items-center gap-2" variant="outline">
-                    <FilterIcon className="w-5 h-5" />
+                  <Button className="flex items-center gap-2 text-white" variant="outline">
+                    <FilterIcon className="w-5 h-5 text-white" />
                     <span>Filters</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-64">
                   <DropdownMenuLabel>Filter by:</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
                   <DropdownMenuCheckboxItem>
-                    <Checkbox />
+                    <Checkbox/>
                     Location
                   </DropdownMenuCheckboxItem>
                   <DropdownMenuCheckboxItem>
@@ -72,7 +68,7 @@ export function ViewProjects() {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 text-white">
               <Button variant="outline">
                 <ListOrderedIcon className="w-5 h-5 mr-2" />
                 Sort
@@ -85,11 +81,12 @@ export function ViewProjects() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {proyectos.slice(0, 3).map((proyecto, index) => (
-            <ProjectCard
-              key={index}
-              title={proyecto.Descripcion}
-              status={proyecto.State}
-              startDate={proyecto.created_at}
+            <Proyecto
+            key={index}
+            nombre={proyecto.Descripcion}
+            estado={proyecto.State}
+            fechaCreacion={proyecto.created_at}
+            id={proyecto.ID}
             />
           ))}
           </div>

@@ -53,6 +53,11 @@ function BudgetGenerator({nameProject, idProject}) {
     }
   };
   
+  const saveBudget = () => {
+   console.log(budgetItems)
+
+  }
+  
  
 
   useEffect(() => {
@@ -60,9 +65,12 @@ function BudgetGenerator({nameProject, idProject}) {
   }, [resultados]);
 
   const addToBudget = (item) => {
-    setBudgetItems((prevItems) => [...prevItems, item]);
-    //console.log(budgetItems)
+    const newItem = {
+      ...item, // Asignar el campo id al campo codigo
+    };
+    setBudgetItems((prevItems) => [...prevItems, newItem]);
   };
+  
 
   const handleDeleteInsumo = (index) => {
     const updatedBudgetItems = [...budgetItems]; // Copia de los ítems del presupuesto
@@ -140,15 +148,11 @@ function BudgetGenerator({nameProject, idProject}) {
               <DropdownMenuContent className="w-56">
                 <NewItemForm buttonClassName={"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-gray-100 focus:text-gray-900 hover:bg-gray-100 hover:text-gray-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-cyan-600 dark:focus:text-gray-50 dark:hover:bg-cyan-600 dark:hover:text-gray-50"}/>
                 <DropdownMenuItem onClick={()=> handleRedirectWindow('/activity')}>New Activity</DropdownMenuItem>
-                <DropdownMenuItem onClick={()=> handleRedirect('/home')}>Home</DropdownMenuItem>
-                <DropdownMenuItem>About</DropdownMenuItem>
-                <DropdownMenuItem>Services</DropdownMenuItem>
-                <DropdownMenuItem>Contact</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>  
           </h2>
           <h2 className="text-lg font-bold mb-4">{nameProject}</h2>
-          <div className="border rounded-lg overflow-hidden">
+          <div className="border rounded-lg overflow-hidden mb-4">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -180,6 +184,11 @@ function BudgetGenerator({nameProject, idProject}) {
                 </TableRow>
               </TableFooter>
             </Table>
+          </div>
+          <div className='flex items-center'>
+            <Button variant="outline" className="mx-auto" onClick={saveBudget}>
+              Save Budget
+            </Button>
           </div>
         </div>
       </div>

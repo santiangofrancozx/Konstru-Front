@@ -33,6 +33,7 @@ export function APUcard({ onClose, id, onAddToBudget }) {
     onAddToBudget({
       descripcion: data.Descripcion,
       precio: data.PrecioBase,
+      id: data.ID,
       cantidad: cantidad// Ensure this is the correct price field
     });
     onClose();

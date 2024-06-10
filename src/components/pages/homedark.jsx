@@ -38,7 +38,7 @@ const Homedark = () =>  {
           <p className="mb-6 text-gray-50">
             Nuestra aplicación te ayuda a generar presupuestos de construcción de manera rápida y eficiente.
           </p>
-          <CreateProjectDrawer buttonClassName="font-bold py-3 px-6 rounded bg-cyan-700 text-white font-[Roboto_Sans]"/>
+          <CreateProjectDrawer buttonClassName="font-bold py-3 px-6 rounded bg-cyan-700 hover:bg-cyan-600 text-white font-[Roboto_Sans]"/>
         </section>
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-4 text-gray-200">Tus Últimos Proyectos</h2>

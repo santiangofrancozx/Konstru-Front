@@ -40,7 +40,7 @@ const CreateProjectDrawer = ({ buttonClassName }) => {
           Crear Nuevo Proyecto
         </button>
       </DrawerTrigger>
-      <DrawerContent className="bg-slate-900 text-gray-50 p-6 rounded-lg shadow-lg">
+      <DrawerContent className="text-gray-50 p-6 rounded-lg shadow-lg">
         <DrawerHeader>
           <DrawerTitle className="text-2xl font-bold">Nuevo Proyecto de Construcción</DrawerTitle>
           <DrawerDescription className="text-gray-400">Ingrese los detalles de su proyecto.</DrawerDescription>
@@ -51,7 +51,7 @@ const CreateProjectDrawer = ({ buttonClassName }) => {
               Nombre del Proyecto
             </Label>
             <Input
-              className="bg-gray-800 border-gray-700 text-gray-50"
+              className="bg-neutral-600 border-gray-700 text-gray-50"
               id="name"
               placeholder="Ingrese el nombre del proyecto"
               value={name}

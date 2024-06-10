@@ -91,9 +91,9 @@ export function NewItemForm({ buttonClassName }) {
                             </Select>
                         </div>
                         <DrawerFooter>
-                            <Button type="submit">Save Item</Button>
+                            <Button type="submit" variant="outline">Save Item</Button>
                             <DrawerClose asChild>
-                                <Button type="button" onClick={() => setIsOpen(false)} variant="outline">Cancel</Button>
+                                <Button type="button" onClick={() => setIsOpen(false)} variant="cancels">Cancel</Button>
                             </DrawerClose>
                         </DrawerFooter>
                     </form>
