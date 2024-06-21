@@ -26,3 +26,49 @@ body {
     text-wrap: balance;
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Añadir la animación bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce {
+  display: inline-block;
+}
+
+/* Estilo para aplicar el delay a cada letra */
+.bounce-1 {
+  animation-delay: 0s;
+}
+.bounce-2 {
+  animation-delay: 0.1s;
+}
+.bounce-3 {
+  animation-delay: 0.2s;
+}
+.bounce-4 {
+  animation-delay: 0.3s;
+}
+.bounce-5 {
+  animation-delay: 0.4s;
+}
+.bounce-6 {
+  animation-delay: 0.5s;
+}
+.bounce-7 {
+  animation-delay: 0.6s;
+}
+
+/* Estilo para la animación en hover */
+.animate:hover .bounce {
+  animation: bounce 0.5s linear 2;
+}

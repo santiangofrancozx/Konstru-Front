@@ -106,7 +106,7 @@ const SignUp = () => {
               />
             </div>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 mt-4">
             <button
               className="w-full rounded-md bg-[#ffca2c] py-2 px-4 font-medium text-[#1a1a1a] hover:bg-[#ffc300] focus:outline-none focus:ring-2 focus:ring-[#ffca2c] focus:ring-offset-2"
               type="submit">
