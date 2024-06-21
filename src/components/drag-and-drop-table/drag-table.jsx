@@ -1,5 +1,4 @@
-import React, { useMemo, useState } from "react";
-import { Table, TableHead, TableRow, TableHeader, TableCell, TableBody, TableFooter } from '@/components/ui/table';
+import React, { useMemo, useState } from 'react';
 import {
   closestCenter,
   DndContext,
@@ -9,21 +8,22 @@ import {
   TouchSensor,
   useSensor,
   useSensors
-} from "@dnd-kit/core";
-import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
+} from '@dnd-kit/core';
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import {
   arrayMove,
   SortableContext,
   verticalListSortingStrategy
-} from "@dnd-kit/sortable";
-import { useTable } from "react-table";
-import { DraggableTableRow } from "./DraggableTableRow";
-import { StaticTableRow } from "./StaticTableRow";
+} from '@dnd-kit/sortable';
+import { useTable } from 'react-table';
+import { DraggableTableRow } from './DraggableTableRow';
+import { StaticTableRow } from './StaticTableRow';
+import { Table, TableHead, TableRow, TableHeader, TableCell, TableBody, TableFooter } from '@/components/ui/table'; // Ajusta la ruta según la estructura de tu proyecto
 
-export function DragTable({ columns, data, setData }) {
-  const [activeId, setActiveId] = useState();
+export function TableDrag({ columns, data, setData }) {
+  const [activeId, setActiveId] = useState(null);
   const items = useMemo(() => data?.map(({ id }) => id), [data]);
-  // Use the state and functions returned from useTable to build your UI
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -31,13 +31,21 @@ export function DragTable({ columns, data, setData }) {
     rows,
     prepareRow
   } = useTable({
-    columns,
+    columns: useMemo(
+      () =>
+        columns.map(column => ({
+          ...column,
+          id: column.accessor // Assuming accessor is unique for each column
+        })),
+      [columns]
+    ),
     data
   });
+
   const sensors = useSensors(
-    useSensor(MouseSensor, {}),
-    useSensor(TouchSensor, {}),
-    useSensor(KeyboardSensor, {})
+    useSensor(MouseSensor),
+    useSensor(TouchSensor),
+    useSensor(KeyboardSensor)
   );
 
   function handleDragStart(event) {
@@ -47,7 +55,7 @@ export function DragTable({ columns, data, setData }) {
   function handleDragEnd(event) {
     const { active, over } = event;
     if (active.id !== over.id) {
-      setData((data) => {
+      setData(data => {
         const oldIndex = items.indexOf(active.id);
         const newIndex = items.indexOf(over.id);
         return arrayMove(data, oldIndex, newIndex);
@@ -70,7 +78,6 @@ export function DragTable({ columns, data, setData }) {
     return row;
   }, [activeId, rows, prepareRow]);
 
-  // Render the UI for your table
   return (
     <DndContext
       sensors={sensors}
@@ -80,29 +87,13 @@ export function DragTable({ columns, data, setData }) {
       collisionDetection={closestCenter}
       modifiers={[restrictToVerticalAxis]}
     >
-      <Table
-        {...getTableProps()}
-        // style={{
-        //   borderCollapse: "collapse",
-        //   width: "100%",
-        //   border: "1px solid #ccc"
-        // }}
-      >
+      <Table {...getTableProps()}>
         <TableHeader>
-          {headerGroups.map((headerGroup, index) => (
-            <TableRow key={index} {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <TableHead
-                  key={column.id}
-                  {...column.getHeaderProps()}
-                  // style={{
-                  //   padding: "8px",
-                  //   borderBottom: "1px solid #ccc",
-                  //   background: "#f2f2f2",
-                  //   textAlign: "left"
-                  // }}
-                >
-                  {column.render("Header")}
+          {headerGroups.map(headerGroup => (
+            <TableRow key={headerGroup.id} {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                <TableHead key={column.id} {...column.getHeaderProps()}>
+                  {column.render('Header')}
                 </TableHead>
               ))}
             </TableRow>
@@ -119,7 +110,7 @@ export function DragTable({ columns, data, setData }) {
       </Table>
       <DragOverlay>
         {activeId && (
-          <Table >
+          <Table style={{ width: '100%' }}>
             <TableBody>
               <StaticTableRow row={selectedRow} />
             </TableBody>

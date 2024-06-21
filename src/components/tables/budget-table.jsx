@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Table, TableHead, TableRow, TableHeader, TableCell, TableBody, TableFooter } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { TrashIcon } from 'lucide-react';
+import { TableDrag } from '../drag-and-drop-table/drag-table';
 
 const BudgetTable = ({ budgetItems, handleDeleteInsumo }) => {
   const totalBudget = useMemo(() => {

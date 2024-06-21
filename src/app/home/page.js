@@ -13,7 +13,7 @@ export default function HomePage() {
 }
 // 'use client'
 // import React, { useMemo, useState } from "react";
-// import { DragTable } from "@/components/tables/drag-table"; // Asegúrate de que la ruta sea correcta
+// import { TableDrag } from "@/components/drag-and-drop-table/drag-table";// Asegúrate de que la ruta sea correcta
 
 // export default function Home() {
 //   const columns = useMemo(
@@ -35,7 +35,7 @@ export default function HomePage() {
 //   return (
 //     <div>
 //       <h1>Tabla Arrastrable en Next.js</h1>
-//       <DragTable columns={columns} data={data} setData={setData} />
+//       <TableDrag columns={columns} data={data} setData={setData} />
 //     </div>
 //   );
 // }

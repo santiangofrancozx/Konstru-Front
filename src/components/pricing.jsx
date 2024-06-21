@@ -103,13 +103,13 @@ export function Pricing() {
           {products.filter(product => product.Descripcion.toLowerCase().includes(searchTerm.toLowerCase())).map(product => (
             <div
               key={product.ID}
-              className="bg-white bg-slate-700 p-4 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow cursor-pointer"
+              className="bg-slate-700 p-4 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow cursor-pointer"
             >
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">{product.Descripcion}</h3>
+              <h3 className="text-lg font-bold text-white">{product.Descripcion}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{product.Descripcion}</p>
               <div className="flex items-center justify-between">
                 <span className="text-gray-900 font-bold dark:text-gray-200">${product.PrecioBase.toFixed(2)}</span>
-                <Button size="sm" onClick={() => handleAddToCart(product)}>
+                <Button size="sm" onClick={() => handleAddToCart(product)} variant="outline">
                   Agregar
                 </Button>
               </div>

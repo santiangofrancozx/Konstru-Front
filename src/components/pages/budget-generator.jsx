@@ -15,7 +15,7 @@ import { NewItemForm } from '@/components/menus/NewItemFormDrawer'
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import BudgetTable from '../tables/budget-table';
-import { DragTable } from '../tables/drag-table';
+
 
 function BudgetGenerator({nameProject, idProject}) {
   const [resultados, setResultados] = useState([]);
@@ -83,12 +83,7 @@ function BudgetGenerator({nameProject, idProject}) {
     try {
       const id = document.getElementById('codigo').value;
       const url = `/api/activities/get?id=${id}`;
-      // const url2 = "/api/activities/user/get";
-
-      // const [response, response2] = await Promise.all([
-      //   axios.get(url),
-      //   axios.get(url2),
-      // ]);
+  
       const response = await axios.get(url)
       if (response.status === 200) {
         setResultados(response.data);
@@ -96,13 +91,6 @@ function BudgetGenerator({nameProject, idProject}) {
         setResultados([]);
         alert('Error: ' + response.status);
       }
-
-      // if (response2.status === 200) {
-      //   setResultados2(response2.data);
-      // } else {
-      //   setResultados2([]);
-      //   alert('Error: ' + response2.status);
-      // }
 
     } catch (error) {
       setResultados([]);
@@ -208,22 +196,7 @@ function BudgetGenerator({nameProject, idProject}) {
                 <Input id="codigo" className="bg-zinc-500 border-none pl-10 pr-4 py-2 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search construction items..." type="text" />
               </form>
             </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="ml-4" variant="outline">
-                  <FilterIcon className="w-4 h-4 mr-2" />
-                  Filter by Category
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
-                <DropdownMenuLabel>Categories</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuCheckboxItem>Tools</DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>Materials</DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>Equipment</DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>Accessories</DropdownMenuCheckboxItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            
           </div>
           <h2 className="text-lg font-bold mb-4">Construction Activities</h2>
           <CardList2 resultados={resultados} resultados2={resultados2} onAddToBudget={addToBudget} />
@@ -251,9 +224,9 @@ function BudgetGenerator({nameProject, idProject}) {
               <DropdownMenuContent className="w-56">
                 <NewItemForm buttonClassName={"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-gray-100 focus:text-gray-900 hover:bg-gray-100 hover:text-gray-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-cyan-600 dark:focus:text-gray-50 dark:hover:bg-cyan-600 dark:hover:text-gray-50"} />
                 <DropdownMenuItem onClick={() => handleRedirectWindow('/activity')}>New Activity</DropdownMenuItem>
-                <DropdownMenuItem onClick={NewChapterButton}>
+                {/* <DropdownMenuItem onClick={NewChapterButton}>
                   Nuevo Capitulo
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
               </DropdownMenuContent>
             </DropdownMenu>
           </h2>

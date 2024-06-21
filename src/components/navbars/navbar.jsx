@@ -136,6 +136,10 @@ export function Navbar() {
                 My Projects
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
+              <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/apuEdit">
+                My APUs
+                <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
+              </Link>
             </div>
           </SheetContent>
         </Sheet>
