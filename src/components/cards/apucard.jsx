@@ -31,10 +31,10 @@ export function APUcard({ onClose, id, onAddToBudget }) {
   const handleAddToBudget = () => {
     const cantidad = document.getElementById("cantidad").value
     onAddToBudget({
-      descripcion: data.Descripcion,
-      precio: data.PrecioBase,
-      id: data.ID,
-      cantidad: cantidad// Ensure this is the correct price field
+      Descripcion: data.Descripcion,
+      PrecioBase: data.PrecioBase,
+      ID: data.ID,
+      Cantidad: cantidad// Ensure this is the correct price field
     });
     onClose();
   };

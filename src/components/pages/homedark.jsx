@@ -6,18 +6,15 @@ import { useRouter } from 'next/navigation';
 
 // import Header from "./headers/ProfileHeader";
 import { Navbar } from '@/components/navbars/navbar';
+import { Navbar2 } from '../navbars/navbar2';
 
 const Homedark = () =>  {
   
   const router = useRouter();
   const [proyectos, setProyectos] = useState([]);
-  const [user, setUser] = useState({});
   useEffect(() => {
     const fetchProyectos = async () => {
       try {
-        const userResponse = await axios.get('api/user/data');
-        console.log('User response:', userResponse.data); // Agregado para ver la respuesta del usuario
-        setUser(userResponse.data);
         const response = await axios.get('api/projects/get');
         setProyectos(response.data);
     
@@ -31,7 +28,7 @@ const Homedark = () =>  {
   return (
     <div className="font-[Roboto] bg-zinc-800">
       {/* <Header username={user.Nombre}/> */}
-      <Navbar username={user.Nombre}/>
+      <Navbar2/>
       <main className="container mx-auto my-12 px-4 sm:px-6 lg:px-8 font-[Roboto]">
         <section className="mb-12">
           <h1 className="text-3xl font-bold mb-4 text-gray-50">Bienvenido a Awesome Konstru</h1>
@@ -46,10 +43,10 @@ const Homedark = () =>  {
           {proyectos.slice(0, 3).map((proyecto, index) => (
             <Proyecto
               key={index}
-              nombre={proyecto.Descripcion}
+              nombre={proyecto.Name}
               estado={proyecto.State}
               fechaCreacion={proyecto.created_at}
-              id={proyecto.ID}
+              id={proyecto.IDProyecto}
             />
           ))}
           </div>

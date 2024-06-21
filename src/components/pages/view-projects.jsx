@@ -35,7 +35,7 @@ export function ViewProjects() {
       <Navbar username={user.Nombre}/>
       <main className="flex-1 bg-gray-100 dark:bg-zinc-800 py-8 px-4 md:px-8">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between mb-6">
+          {/* <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
               <Input
                 className="bg-white dark:bg-zinc-600 px-4 py-2 rounded-md w-full max-w-md"
@@ -78,15 +78,15 @@ export function ViewProjects() {
                 Export
               </Button>
             </div>
-          </div>
+          </div> */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {proyectos.slice(0, 3).map((proyecto, index) => (
+          {proyectos.map((proyecto, index) => (
             <Proyecto
             key={index}
-            nombre={proyecto.Descripcion}
+            nombre={proyecto.Name}
             estado={proyecto.State}
             fechaCreacion={proyecto.created_at}
-            id={proyecto.ID}
+            id={proyecto.IDProyecto}
             />
           ))}
           </div>

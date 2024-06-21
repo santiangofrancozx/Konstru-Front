@@ -36,7 +36,7 @@ export function NewItemForm({ buttonClassName }) {
         };
 
         try {
-            const response = await axios.post('/api/insertInsumo', jsonData);
+            const response = await axios.post('/api/insumos', jsonData);
             if (response.status === 200) {
                 setIsOpen(false); // Cerrar el Drawer si el insumo se guarda correctamente
                 Swal.fire('Guardado!', 'El insumo se ha guardado correctamente.', 'success');

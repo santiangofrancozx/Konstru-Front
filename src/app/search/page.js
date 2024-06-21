@@ -3,6 +3,8 @@
 import { useSearchParams } from 'next/navigation';
 import BudgetGenerator from "@/components/pages/budget-generator";
 import PrivateRoute from "@/components/auth/PrivateRoute";
+import { Navbar } from '@/components/navbars/navbar';
+import { Children } from 'react';
 
 export default function BudgetGeneratorRender() {
   const searchParams = useSearchParams();
@@ -11,6 +13,7 @@ export default function BudgetGeneratorRender() {
 
   return (
     <div>
+      <Navbar/>
       <PrivateRoute>
         <BudgetGenerator nameProject={nameProject} idProject={idProject} />
       </PrivateRoute>

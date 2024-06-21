@@ -19,7 +19,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8082/insertNewUser', { nombre: firstName, apellido: lastName, email, password: pass });
+      const response = await axios.post('api/user/create', { nombre: firstName, apellido: lastName, email, password: pass });
       if (response.status == 200) {
         router.push('/home'); // Ruta protegida
       } else {

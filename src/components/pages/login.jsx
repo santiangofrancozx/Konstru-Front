@@ -74,7 +74,7 @@ const Login = () => {
             </button>
             <p className="text-center text-sm text-[#a6a6a6]">
               Dont have an account?
-              <a className="font-medium text-[#ffca2c] hover:underline" href="#">
+              <a className="font-medium text-[#ffca2c] hover:underline" href="/singup">
                 Sign Up
               </a>
             </p>

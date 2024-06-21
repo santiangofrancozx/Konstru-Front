@@ -24,10 +24,10 @@ const CreateProjectDrawer = ({ buttonClassName }) => {
     };
 
     try {
-      const response = await axios.post('api/insertProject', projectData);
+      const response = await axios.post('api/projects/create', projectData);
       console.log('Proyecto creado:', response.data);
       setIsOpen(false);
-      router.push('/search');
+      router.push(`/search?nameProject=${response.data.Name}&idProject=${response.data.IDProyecto}`);
     } catch (error) {
       console.error('Error al crear el proyecto:', error);
     }
