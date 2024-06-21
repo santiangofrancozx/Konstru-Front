@@ -27,10 +27,12 @@ export function Navbar2() {
       <div className="flex items-center gap-4">
       <Sheet>
           <SheetTrigger asChild>
-          <Avatar className="w-12 h-12 cursor-pointer bg-sky-950">
+          <Avatar className="w-16 h-18 cursor-pointer bg-sky-950 -translate-x-4">
               <AvatarImage alt="User Avatar" src="/placeholder-avatar.jpg" />
-              <AvatarFallback>
-                <MountainIcon />
+              <AvatarFallback >
+              <div className="w-full h-full bg-cyan-700 flex items-center justify-center">
+                <img src="/logoKonstru.png" alt="Fallback Image" className="object-cover w-full h-full" />
+                </div>
               </AvatarFallback>
             </Avatar>
           </SheetTrigger>
@@ -63,7 +65,7 @@ export function Navbar2() {
           </SheetContent>
         </Sheet>
         <div>
-          <p className="text-gray-400">Construction Budget Manager</p>
+          <p className="text-white-400 text-lg font-semibold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Construction Budget Manager</p>
         </div>
       </div>
     </header>
