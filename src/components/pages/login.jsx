@@ -52,7 +52,7 @@ const Login = () => {
                 <label className="block text-sm font-medium text-[#d9d9d9]" htmlFor="password">
                   Password
                 </label>
-                <a className="text-sm font-medium text-[#ffca2c] hover:underline" href="#">
+                <a className="text-sm font-medium text-cyan-300 hover:underline" href="#">
                   Forgot password?
                 </a>
               </div>
@@ -66,15 +66,15 @@ const Login = () => {
               />
             </div>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 mt-4">
             <button
-              className="w-full rounded-md bg-[#ffca2c] py-2 px-4 font-medium text-[#1a1a1a] hover:bg-[#ffc300] focus:outline-none focus:ring-2 focus:ring-[#ffca2c] focus:ring-offset-2"
+              className="w-full rounded-md bg-cyan-600 py-2 px-4 font-medium text-white hover:bg-cyan-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#ffca2c] focus:ring-offset-2"
               type="submit">
               Sign In
             </button>
             <p className="text-center text-sm text-[#a6a6a6]">
               Dont have an account?
-              <a className="font-medium text-[#ffca2c] hover:underline" href="/singup">
+              <a className="font-medium text-cyan-300 hover:underline" href="/singup">
                 Sign Up
               </a>
             </p>
