@@ -51,7 +51,6 @@ const CreateProjectDrawer = ({ buttonClassName }) => {
               Nombre del Proyecto
             </Label>
             <Input
-              className="bg-neutral-600 border-gray-700 text-gray-50"
               id="name"
               placeholder="Ingrese el nombre del proyecto"
               value={name}
@@ -63,7 +62,6 @@ const CreateProjectDrawer = ({ buttonClassName }) => {
               Descripción
             </Label>
             <Textarea
-              className="bg-gray-800 border-gray-700 text-gray-50"
               id="description"
               placeholder="Ingrese la descripción del proyecto"
               value={description}
@@ -102,14 +100,14 @@ const CreateProjectDrawer = ({ buttonClassName }) => {
         </div>
         <DrawerFooter>
           <Button
-            className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold"
-            variant="primary"
+            className=""
+            variant="outline"
             onClick={handleCreateProject}
           >
             Crear Proyecto
           </Button>
           <DrawerClose asChild>
-            <Button className="border-gray-700 text-gray-400 hover:bg-gray-800 hover:text-gray-50" variant="outline" onClick={() => setIsOpen(false)}>
+            <Button  variant="destructive" onClick={() => setIsOpen(false)}>
               Cancelar
             </Button>
           </DrawerClose>

@@ -58,7 +58,7 @@ const CreateProjectDrawerMenuItem = ({ buttonClassName }) => {
         </button>
       </DropdownMenuItem>
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
-        <DrawerContent className="bg-gray-900 text-gray-50 p-6 rounded-lg shadow-lg">
+        <DrawerContent className="text-gray-50 p-6 rounded-lg shadow-lg">
           <DrawerHeader>
             <DrawerTitle className="text-2xl font-bold">
               Nuevo Proyecto de Construcción
@@ -73,7 +73,6 @@ const CreateProjectDrawerMenuItem = ({ buttonClassName }) => {
                 Nombre del Proyecto
               </Label>
               <Input
-                className="bg-gray-800 border-gray-700 text-gray-50"
                 id="name"
                 placeholder="Ingrese el nombre del proyecto"
                 value={name}
@@ -85,7 +84,6 @@ const CreateProjectDrawerMenuItem = ({ buttonClassName }) => {
                 Descripción
               </Label>
               <Textarea
-                className="bg-gray-800 border-gray-700 text-gray-50"
                 id="description"
                 placeholder="Ingrese la descripción del proyecto"
                 value={description}
@@ -97,7 +95,7 @@ const CreateProjectDrawerMenuItem = ({ buttonClassName }) => {
                 Tipo de Proyecto
               </Label>
               <Select
-                className="bg-gray-800 border-gray-700 text-gray-50"
+                className="bg-slate-700 border-gray-700 text-gray-50"
                 id="type"
                 value={type}
                 onValueChange={(value) => setType(value)}
@@ -107,13 +105,13 @@ const CreateProjectDrawerMenuItem = ({ buttonClassName }) => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem
-                    className="hover:bg-gray-800 hover:text-gray-50"
+                    className="hover:bg-slate-500 text-gray-50"
                     value="residential"
                   >
                     Residencial
                   </SelectItem>
                   <SelectItem
-                    className="hover:bg-gray-800 hover:text-gray-50"
+                    className="hover:bg-slate-500 hover:text-gray-50"
                     value="commercial"
                   >
                     Comercial
@@ -136,16 +134,15 @@ const CreateProjectDrawerMenuItem = ({ buttonClassName }) => {
           </div>
           <DrawerFooter>
             <Button
-              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold"
-              variant="primary"
+              className=""
+              variant="outline"
               onClick={handleCreateProject}
             >
               Crear Proyecto
             </Button>
             <DrawerClose asChild>
               <Button
-                className="border-gray-700 text-gray-400 hover:bg-gray-800 hover:text-gray-50"
-                variant="outline"
+                variant="destructive"
                 onClick={() => setIsOpen(false)}
               >
                 Cancelar

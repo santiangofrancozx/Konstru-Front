@@ -187,6 +187,7 @@ function BudgetGenerator({nameProject, idProject}) {
 
   return (
     <div key="1" className="flex flex-col h-screen">
+      
       <div className="flex-1 flex flex-col lg:flex-row bg-zinc-800 text-white">
         <div className="p-4 lg:p-6 border-b lg:border-r lg:border-b-0 border-gray-200 dark:border-gray-700 overflow-y-auto">
           <div className="flex items-center mb-4">
@@ -214,6 +215,7 @@ function BudgetGenerator({nameProject, idProject}) {
               <DownloadIcon className="w-4 h-4 mr-2" />
               Export
             </Button>
+            
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="ml-4" size="sm" variant="outline">
@@ -222,14 +224,16 @@ function BudgetGenerator({nameProject, idProject}) {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
-                <NewItemForm buttonClassName={"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-gray-100 focus:text-gray-900 hover:bg-gray-100 hover:text-gray-900 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-cyan-600 dark:focus:text-gray-50 dark:hover:bg-cyan-600 dark:hover:text-gray-50"} />
+              
                 <DropdownMenuItem onClick={() => handleRedirectWindow('/activity')}>New Activity</DropdownMenuItem>
-                {/* <DropdownMenuItem onClick={NewChapterButton}>
+                <DropdownMenuItem onClick={NewChapterButton}>
                   Nuevo Capitulo
-                </DropdownMenuItem> */}
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+            <NewItemForm/>
           </h2>
+          
           <div className="border rounded-lg overflow-hidden mb-4">
             <BudgetTable budgetItems={budgetItems} handleDeleteInsumo={handleDeleteInsumo}/>
           </div>

@@ -9,13 +9,13 @@ import axios from "axios";
 
 export function NewItemForm({ buttonClassName }) {
     const [isOpen, setIsOpen] = useState(false);
+    const [description, setDescription] = useState("");
+    const [unit, setUnit] = useState("");
+    const [price, setPrice] = useState("");
     const [category, setCategory] = useState("tools");
 
     const InsumoHandler = async (e) => {
         e.preventDefault();
-        const description = document.getElementById("description").value;
-        const unit = document.getElementById("unit").value;
-        const price = document.getElementById("price").value;
 
         // Validaciones
         if (!description || !unit || !price) {
@@ -40,6 +40,7 @@ export function NewItemForm({ buttonClassName }) {
             if (response.status === 200) {
                 setIsOpen(false); // Cerrar el Drawer si el insumo se guarda correctamente
                 Swal.fire('Guardado!', 'El insumo se ha guardado correctamente.', 'success');
+                resetForm(); // Resetear el formulario después de guardar
             } else {
                 Swal.fire('Error!', 'Hubo un problema al guardar el insumo.', 'error');
             }
@@ -48,12 +49,26 @@ export function NewItemForm({ buttonClassName }) {
         }
     };
 
+    const resetForm = () => {
+        setDescription("");
+        setUnit("");
+        setPrice("");
+        setCategory("tools");
+    };
+
+    const handleOpenChange = (open) => {
+        setIsOpen(open);
+        if (open) {
+            resetForm(); // Resetear el formulario cuando se abre
+        }
+    };
+
     return (
-        <Drawer open={isOpen} onOpenChange={setIsOpen}>
+        <Drawer open={isOpen} onOpenChange={handleOpenChange}>
             <DrawerTrigger asChild>
-                <button className={buttonClassName} onClick={() => setIsOpen(true)}>
+                <Button className="m-4" variant="outline" onClick={() => setIsOpen(true)}>
                     Crear Insumo
-                </button>
+                </Button>
             </DrawerTrigger>
             <DrawerContent>
                 <DrawerHeader>
@@ -64,21 +79,46 @@ export function NewItemForm({ buttonClassName }) {
                     <form onSubmit={InsumoHandler} className="space-y-4">
                         <div className="grid gap-2">
                             <Label htmlFor="description">Description</Label>
-                            <Input id="description" placeholder="Enter item description" required />
+                            <Input
+                                id="description"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                placeholder="Enter item description"
+                                required
+                            />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="grid gap-2">
                                 <Label htmlFor="unit">Unit</Label>
-                                <Input id="unit" placeholder="Enter unit" required />
+                                <Input
+                                    id="unit"
+                                    value={unit}
+                                    onChange={(e) => setUnit(e.target.value)}
+                                    placeholder="Enter unit"
+                                    required
+                                />
                             </div>
                             <div className="grid gap-2">
                                 <Label htmlFor="price">Price</Label>
-                                <Input id="price" placeholder="Enter price" type="number" min="0" step="any" required />
+                                <Input
+                                    id="price"
+                                    value={price}
+                                    onChange={(e) => setPrice(e.target.value)}
+                                    placeholder="Enter price"
+                                    type="number"
+                                    min="0"
+                                    step="any"
+                                    required
+                                />
                             </div>
                         </div>
                         <div className="grid gap-2">
                             <Label htmlFor="category">Category</Label>
-                            <Select defaultValue="tools" id="category" onValueChange={(value) => setCategory(value)}>
+                            <Select
+                                value={category}
+                                onValueChange={(value) => setCategory(value)}
+                                id="category"
+                            >
                                 <SelectTrigger>
                                     <SelectValue placeholder="Select category" />
                                 </SelectTrigger>
