@@ -9,7 +9,9 @@ const roboto = Roboto({
   display: 'swap',
   variable: '--font-roboto',
   weight: '100',
+  
 })
+
 
 export const metadata = {
   title: "Create Next App",

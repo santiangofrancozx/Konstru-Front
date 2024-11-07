@@ -86,8 +86,8 @@ export function ApuEdit() {
       <main className="flex-1 px-6 py-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-2xl font-bold">APU Analyzer</h1>
-            <Button variant="outline" onClick={() => router.push('/activity')}>Create APU</Button>
+            <h1 className="text-2xl font-bold">Vista de APU's</h1>
+            <Button variant="outline" onClick={() => router.push('/activity')}>Crear APU</Button>
           </div>
           <div className="bg-zinc-700 rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between mb-4">
@@ -104,11 +104,11 @@ export function ApuEdit() {
                 {/* Botones para cambiar vista (Grid y List) */}
                 <Button variant="outline" size="icon">
                   <LayoutGridIcon className="h-4 w-4" />
-                  <span className="sr-only">Grid View</span>
+                  <span className="sr-only">Vista de columnas</span>
                 </Button>
                 <Button variant="outline" size="icon">
                   <ListIcon className="h-4 w-4" />
-                  <span className="sr-only">List View</span>
+                  <span className="sr-only">Lista</span>
                 </Button>
               </div>
             </div>
@@ -116,11 +116,11 @@ export function ApuEdit() {
               <table className="w-full table-auto">
                 <thead>
                   <tr className="bg-gray-100/20 text-gray-500 dark:bg-gray-800/20 dark:text-gray-400">
-                    <th className="px-4 py-3 text-left">Name</th>
-                    <th className="px-4 py-3 text-left">Codigo</th>
-                    <th className="px-4 py-3 text-left">Unit</th>
-                    <th className="px-4 py-3 text-left">Price</th>
-                    <th className="px-4 py-3 text-right">Actions</th>
+                    <th className="px-4 py-3 text-left">Nombre</th>
+                    <th className="px-4 py-3 text-left">Código</th>
+                    <th className="px-4 py-3 text-left">Unidad</th>
+                    <th className="px-4 py-3 text-left">Precio</th>
+                    <th className="px-4 py-3 text-right">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -161,11 +161,11 @@ const TableRow = ({ name, code, unit, price, onEditClick, onDeleteClick }) => {
         <div className="flex items-center justify-end gap-2">
           <Button variant="outline" size="icon" onClick={onEditClick}>
             <FilePenIcon className="h-4 w-4" />
-            <span className="sr-only">Edit</span>
+            <span className="sr-only">Editar</span>
           </Button>
           <Button variant="outline" size="icon" onClick={onDeleteClick}>
-            <TrashIcon className="h-4 w-4" />
-            <span className="sr-only">Delete</span>
+            <TrashIcon className="h-5 w-5 cursor-pointer text-red-600 hover:text-red-900" />
+            <span className="sr-only">Eliminar</span>
           </Button>
         </div>
       </td>
