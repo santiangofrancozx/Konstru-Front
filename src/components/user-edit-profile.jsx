@@ -65,7 +65,7 @@ export function UserEditProfile() {
       <main className="flex-1 py-8 px-4 md:px-6">
         <div className="container grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <section className="space-y-6">
-            <h2 className="text-xl font-bold">User Information</h2>
+            <h2 className="text-xl font-bold">Información de Usuario</h2>
             <div className="space-y-4">
               <div className="grid gap-2">
                 <Label htmlFor="name">Nombre</Label>

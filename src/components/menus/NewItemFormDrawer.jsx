@@ -72,39 +72,39 @@ export function NewItemForm({ buttonClassName }) {
             </DrawerTrigger>
             <DrawerContent>
                 <DrawerHeader>
-                    <DrawerTitle>Add New Construction Item</DrawerTitle>
-                    <DrawerDescription>Enter the details for the new construction item.</DrawerDescription>
+                    <DrawerTitle>Añadir nuevo insumo de construcción</DrawerTitle>
+                    <DrawerDescription>Ingresa los detalles para el nuevo insumo de construcción.</DrawerDescription>
                 </DrawerHeader>
                 <div className="px-4">
                     <form onSubmit={InsumoHandler} className="space-y-4">
                         <div className="grid gap-2">
-                            <Label htmlFor="description">Description</Label>
+                            <Label htmlFor="description">Descripción</Label>
                             <Input
                                 id="description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                placeholder="Enter item description"
+                                placeholder="Ingresa la descripciónn del insumo"
                                 required
                             />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="grid gap-2">
-                                <Label htmlFor="unit">Unit</Label>
+                                <Label htmlFor="unit">Unidad</Label>
                                 <Input
                                     id="unit"
                                     value={unit}
                                     onChange={(e) => setUnit(e.target.value)}
-                                    placeholder="Enter unit"
+                                    placeholder="Ingrese la unidad de medida"
                                     required
                                 />
                             </div>
                             <div className="grid gap-2">
-                                <Label htmlFor="price">Price</Label>
+                                <Label htmlFor="price">Precio</Label>
                                 <Input
                                     id="price"
                                     value={price}
                                     onChange={(e) => setPrice(e.target.value)}
-                                    placeholder="Enter price"
+                                    placeholder="Ingresa el precio"
                                     type="number"
                                     min="0"
                                     step="any"
@@ -113,27 +113,27 @@ export function NewItemForm({ buttonClassName }) {
                             </div>
                         </div>
                         <div className="grid gap-2">
-                            <Label htmlFor="category">Category</Label>
+                            <Label htmlFor="category">Categoría</Label>
                             <Select
                                 value={category}
                                 onValueChange={(value) => setCategory(value)}
                                 id="category"
                             >
                                 <SelectTrigger>
-                                    <SelectValue placeholder="Select category" />
+                                    <SelectValue placeholder="Seleccionar categoría" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="tools">Tools</SelectItem>
-                                    <SelectItem value="materials">Materials</SelectItem>
-                                    <SelectItem value="equipment">Equipment</SelectItem>
-                                    <SelectItem value="accessories">Accessories</SelectItem>
+                                    <SelectItem value="tools">Herramientas</SelectItem>
+                                    <SelectItem value="materials">Materiales</SelectItem>
+                                    <SelectItem value="equipment">Equipos</SelectItem>
+                                    <SelectItem value="accessories">Accesorios</SelectItem>
                                 </SelectContent>
                             </Select>
                         </div>
                         <DrawerFooter>
-                            <Button type="submit" variant="outline">Save Item</Button>
+                            <Button type="submit" variant="outline">Guardar insumo</Button>
                             <DrawerClose asChild>
-                                <Button type="button" onClick={() => setIsOpen(false)} variant="cancels">Cancel</Button>
+                                <Button type="button" onClick={() => setIsOpen(false)} variant="cancels">Cancelar</Button>
                             </DrawerClose>
                         </DrawerFooter>
                     </form>

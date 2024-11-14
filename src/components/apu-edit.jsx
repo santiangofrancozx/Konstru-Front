@@ -86,7 +86,7 @@ export function ApuEdit() {
       <main className="flex-1 px-6 py-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-2xl font-bold">Vista de APU's</h1>
+            <h1 className="text-2xl font-bold">Vista de APU</h1>
             <Button variant="outline" onClick={() => router.push('/activity')}>Crear APU</Button>
           </div>
           <div className="bg-zinc-700 rounded-lg shadow-md p-6">
@@ -94,7 +94,7 @@ export function ApuEdit() {
               <div className="flex items-center gap-4">
                 <Input
                   type="search"
-                  placeholder="Search APUs..."
+                  placeholder="Buscar APU..."
                   className="max-w-mb"
                   value={searchTerm}
                   onChange={handleSearch}

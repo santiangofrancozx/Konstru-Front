@@ -62,48 +62,48 @@ export function NewActivityForm({buttonClassName}) {
         </DrawerTrigger>
         <DrawerContent className="max-h-[100vh]">
         <DrawerHeader>
-          <DrawerTitle>Add New Construction Activity</DrawerTitle>
-          <DrawerDescription>Enter the details for the new construction activity.</DrawerDescription>
+          <DrawerTitle>Añadir nueva actividad de construcción</DrawerTitle>
+          <DrawerDescription>Ingresa los detalles de la nueva actividad de construcción.</DrawerDescription>
         </DrawerHeader>
         <div className="px-4 overflow-y-auto" style={{ maxHeight: '70vh' }}>
           <form className="space-y-4">
             <div className="grid gap-2">
-              <Label htmlFor="description">Description</Label>
+              <Label htmlFor="description">Descripción</Label>
               <Input id="description" placeholder="Enter item description" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="unit">Unit</Label>
+                <Label htmlFor="unit">Unidad</Label>
                 <Input id="unit" placeholder="Enter unit" />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="price">Price</Label>
+                <Label htmlFor="price">Precio</Label>
                 <Input id="price" placeholder="Enter price" type="number" />
               </div>
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="category">Category</Label>
+              <Label htmlFor="category">Categoría</Label>
               <Select defaultValue="tools" id="category">
                 <SelectTrigger>
                   <SelectValue placeholder="Select category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="tools">Tools</SelectItem>
-                  <SelectItem value="materials">Materials</SelectItem>
-                  <SelectItem value="equipment">Equipment</SelectItem>
-                  <SelectItem value="accessories">Accessories</SelectItem>
+                  <SelectItem value="tools">Herramientas</SelectItem>
+                  <SelectItem value="materials">Materiales</SelectItem>
+                  <SelectItem value="equipment">Equipos</SelectItem>
+                  <SelectItem value="accessories">Accesorios</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="searchInsumo">Search Insumo</Label>
+              <Label htmlFor="searchInsumo">Buscar Insumo</Label>
               <Input
                 id="codigo"
                 placeholder="Search for an insumo"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <Button onClick={handleSearch}>Search</Button>
+              <Button onClick={handleSearch}>Buscar</Button>
             </div>
             <div className="grid gap-4 max-h-[27vh] overflow-y-auto">
               {foundInsumos.map((insumo) => (
@@ -113,23 +113,23 @@ export function NewActivityForm({buttonClassName}) {
                     <h3 className="text-lg font-bold ">{insumo.Descripcion}</h3>
                     <p className="text-gray-500">${insumo.PrecioBase.toFixed(2)}</p>
                   </div>
-                  <Button className="ml-auto" onClick={() => addInsumo(insumo)}>Add</Button>
+                  <Button className="ml-auto" onClick={() => addInsumo(insumo)}>Añadir</Button>
                 </Card>
                 
               ))}
             </div>
             <div className="grid gap-2">
-              <Label>Added Insumos</Label>
+              <Label>Insumos añadidos</Label>
 
               <Table className="min-w-full divide-y divide-gray-200">
                 <TableHead className="bg-gray-50">
                   <TableRow>
                     <TableHeaderCell>ID</TableHeaderCell>
-                    <TableHeaderCell>Description</TableHeaderCell>
-                    <TableHeaderCell>Unit</TableHeaderCell>
-                    <TableHeaderCell>Price</TableHeaderCell>
-                    <TableHeaderCell>Classification</TableHeaderCell>
-                    <TableHeaderCell>Action</TableHeaderCell>
+                    <TableHeaderCell>Descripción</TableHeaderCell>
+                    <TableHeaderCell>Unidad</TableHeaderCell>
+                    <TableHeaderCell>Precio</TableHeaderCell>
+                    <TableHeaderCell>Clasificación</TableHeaderCell>
+                    <TableHeaderCell>Acción</TableHeaderCell>
                   </TableRow>
                 </TableHead>
                 <TableBody className="bg-white divide-y divide-gray-200">
@@ -151,9 +151,9 @@ export function NewActivityForm({buttonClassName}) {
           </form>
         </div>
         <DrawerFooter>
-          <Button>Save Activity</Button>
+          <Button>Guardar actividad</Button>
           <DrawerClose asChild>
-            <Button onClick={() => setIsOpen(false)} variant="outline">Cancel</Button>
+            <Button onClick={() => setIsOpen(false)} variant="outline">Cancelar</Button>
           </DrawerClose>
         </DrawerFooter>
         </DrawerContent>

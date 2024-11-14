@@ -13,10 +13,10 @@ const BudgetTable = ({ budgetItems, handleDeleteInsumo }) => {
     <Table id="budgetTable">
       <TableHeader>
         <TableRow>
-          <TableHead>Item</TableHead>
-          <TableHead>Description</TableHead>
-          <TableHead>Quantity</TableHead>
-          <TableHead>Unit Price</TableHead>
+          <TableHead>Artículo</TableHead>
+          <TableHead>Descripción</TableHead>
+          <TableHead>Cantidad</TableHead>
+          <TableHead>Precio unitario</TableHead>
           <TableHead>Total</TableHead>
           <TableHead></TableHead>
         </TableRow>

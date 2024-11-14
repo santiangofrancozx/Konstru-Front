@@ -194,12 +194,12 @@ function BudgetGenerator({nameProject, idProject}) {
             <div className="relative flex-1">
               <form onSubmit={ActivityHandler}>
                 <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <Input id="codigo" className="bg-zinc-500 border-none pl-10 pr-4 py-2 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search construction items..." type="text" />
+                <Input id="codigo" className="bg-zinc-500 border-none pl-10 pr-4 py-2 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Buscar materiales de construcción..." type="text" />
               </form>
             </div>
             
           </div>
-          <h2 className="text-lg font-bold mb-4">Construction Activities</h2>
+          <h2 className="text-lg font-bold mb-4">Actividades de construcción</h2>
           <CardList2 resultados={resultados} resultados2={resultados2} onAddToBudget={addToBudget} />
         </div>
         <div className="flex-1 p-4 lg:p-6 overflow-y-auto">
@@ -210,10 +210,10 @@ function BudgetGenerator({nameProject, idProject}) {
             defaultValue={nameProject}
           />
           <h2 className="text-lg font-bold mb-4">
-            Budget
+            Presupuesto
             <Button className="ml-4" variant="outline" onClick={handleExportPDF}>
               <DownloadIcon className="w-4 h-4 mr-2" />
-              Export
+              Exportar
             </Button>
             
             <DropdownMenu>
@@ -225,7 +225,7 @@ function BudgetGenerator({nameProject, idProject}) {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
               
-                <DropdownMenuItem onClick={() => handleRedirectWindow('/activity')}>New Activity</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleRedirectWindow('/activity')}>Nueva actividad</DropdownMenuItem>
                 <DropdownMenuItem onClick={NewChapterButton}>
                   Nuevo Capitulo
                 </DropdownMenuItem>
@@ -237,7 +237,7 @@ function BudgetGenerator({nameProject, idProject}) {
           <div className="border rounded-lg overflow-hidden mb-4">
             <BudgetTable budgetItems={budgetItems} handleDeleteInsumo={handleDeleteInsumo}/>
           </div>
-          <Button onClick={saveBudget} variant="outline">Save Budget</Button>
+          <Button onClick={saveBudget} variant="outline">Guardar presupuesto</Button>
         </div>
       </div>
     </div>

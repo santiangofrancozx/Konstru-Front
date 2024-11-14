@@ -91,7 +91,7 @@ export function Navbar() {
               <div className="grid gap-2">
                 <Button variant="outline" className="text-white border-white bg-cyan-700" onClick={() => router.push('/userProfile')}>
                   <UserIcon className="w-5 h-5 mr-2 bg-sky-950" />
-                  <Link href="/userProfile">Edit Profile</Link>
+                  <Link href="/userProfile">Editar Perfil</Link>
                 </Button>
                 <Button variant="outline" className="text-white border-white bg-sky-950">
                   <LogOutIcon className="w-5 h-5 mr-2 bg-sky-950" onClick={handleLogout}/>
@@ -118,26 +118,26 @@ export function Navbar() {
           <SheetContent side="left" className="text-white bg-sky-950">
             <div className="grid gap-2 py-6">
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/home">
-                Home
+                Inicio
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold hover:text-cyan-300" href="/search">
-                Budget Generator
+                Generar presupuesto
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/userProfile">
-                User Profile
+                Perfil del Usuario
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/pricing">
-                Pricing
+                Precios
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/dashboard">
-                My Projects
+                Mis proyectos
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/apuEdit">
-                My APUs
+                Mis APUs
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
             </div>

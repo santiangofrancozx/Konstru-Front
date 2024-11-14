@@ -29,8 +29,8 @@ const Login = () => {
     <div className="flex min-h-[100vh] flex-col items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#2b2b2b] px-4 py-12 md:px-6">
       <div className="w-full max-w-md space-y-6">
         <div className="space-y-2 text-center">
-          <h1 className="text-3xl font-bold text-[#d9d9d9]">Sign In</h1>
-          <p className="text-[#a6a6a6]">Enter your credentials to access your account.</p>
+          <h1 className="text-3xl font-bold text-[#d9d9d9]">Iniciar sesión</h1>
+          <p className="text-[#a6a6a6]">Ingresa tus credenciales para acceder a tu cuenta</p>
         </div>
         <form onSubmit={handleLogin}>
           <div className="space-y-4">
@@ -41,7 +41,7 @@ const Login = () => {
               <input
                 className="block w-full rounded-md border-[#404040] bg-[#2b2b2b] px-3 py-2 text-[#d9d9d9] placeholder-[#a6a6a6] focus:border-[#ffca2c] focus:outline-none focus:ring-[#ffca2c]"
                 id="username"
-                placeholder="Enter your username"
+                placeholder="Ingresa el usuario"
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -50,16 +50,16 @@ const Login = () => {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label className="block text-sm font-medium text-[#d9d9d9]" htmlFor="password">
-                  Password
+                  Contraseña
                 </label>
                 <a className="text-sm font-medium text-cyan-300 hover:underline" href="#">
-                  Forgot password?
+                  ¿Olvidaste la contraseña?
                 </a>
               </div>
               <input
                 className="block w-full rounded-md border-[#404040] bg-[#2b2b2b] px-3 py-2 text-[#d9d9d9] placeholder-[#a6a6a6] focus:border-[#ffca2c] focus:outline-none focus:ring-[#ffca2c]"
                 id="password"
-                placeholder="Enter your password"
+                placeholder="Ingresa la contraseña"
                 type="password"
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
@@ -70,12 +70,12 @@ const Login = () => {
             <button
               className="w-full rounded-md bg-cyan-600 py-2 px-4 font-medium text-white hover:bg-cyan-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#ffca2c] focus:ring-offset-2"
               type="submit">
-              Sign In
+              Iniciar sesión
             </button>
             <p className="text-center text-sm text-[#a6a6a6]">
-              Dont have an account?
+              ¿No tienes una cuenta? 
               <a className="font-medium text-cyan-300 hover:underline" href="/singup">
-                Sign Up
+                 Registrarse
               </a>
             </p>
           </div>

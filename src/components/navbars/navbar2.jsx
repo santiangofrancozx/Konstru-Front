@@ -39,33 +39,33 @@ export function Navbar2() {
           <SheetContent side="left" className="text-white bg-sky-950"> {/* Cambia el color de fondo del menú desplegable */}
             <div className="grid gap-2 py-6">
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/home">
-                Home
+                Inicio
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold hover:text-cyan-300" href="/search">
-                Budget Generator
+                Generar presupuesto
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/userProfile">
-                User Profile
+                Pefil de usuario
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/pricing">
-                Pricing (Beta)
+                Precios (Beta)
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/dashboard">
-                My Projects
+                Mis proyectos
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold text-white hover:text-cyan-300" href="/apuEdit">
-                My APUs
+                Mis APUs
                 <ChevronRightIcon className="ml-auto h-5 w-5 transition-all text-white" />
               </Link>
             </div>
           </SheetContent>
         </Sheet>
         <div>
-          <p className="text-white-400 text-lg font-semibold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Construction Budget Manager</p>
+          <p className="text-white-400 text-lg font-semibold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Manejador de presupuesto de construcción</p>
         </div>
       </div>
     </header>

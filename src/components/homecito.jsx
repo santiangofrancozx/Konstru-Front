@@ -100,17 +100,17 @@ const handleSignUp = async (userData) => {
             </p>
             <Card>
               <CardHeader>
-                <CardTitle>Access the Budget Generator</CardTitle>
+                <CardTitle>Acceder al generador de presupuesto</CardTitle>
               </CardHeader>
               <CardContent>
                 {/* Componente de formulario de registro */}
                 <SignUpForm onSignUp={handleSignUp} />
                 <p className="text-center text-sm text-[#a6a6a6]">
-                  Already have an account?{' '}
+                  ¿Ya tines una cuenta?{' '}
                 <a className="font-medium text-cyan-300 hover:underline" href='/login'>
-                  Sign In
+                  Iniciar sesión
                 </a>  
-                </p>
+                </p>  
               </CardContent>
             </Card>
           </div>
@@ -157,26 +157,26 @@ const SignUpForm = ({ onSignUp }) => {
       <div className="space-y-4">
         <div className="space-y-2">
           <label className="block text-sm font-medium text-[#d9d9d9]" htmlFor="first-name">
-            First Name
+            Nombre
           </label>
           <Input
             id="first-name"
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            placeholder="Enter your first name"
+            placeholder="Ingresa el nombre"
           />
         </div>
         <div className="space-y-2">
           <label className="block text-sm font-medium text-[#d9d9d9]" htmlFor="last-name">
-            Last Name
+            Apellido
           </label>
           <Input
             id="last-name"
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            placeholder="Enter your last name"
+            placeholder="Ingresa el apellido"
           />
         </div>
         <div className="space-y-2">
@@ -188,31 +188,31 @@ const SignUpForm = ({ onSignUp }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
+            placeholder="Ingresa el email"
           />
         </div>
         <div className="space-y-2">
           <label className="block text-sm font-medium text-[#d9d9d9]" htmlFor="password">
-            Password
+            Contraseña
           </label>
           <Input
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
+            placeholder="Ingrese la contraseña"
           />
         </div>
         <div className="space-y-2">
           <label className="block text-sm font-medium text-[#d9d9d9]" htmlFor="confirm-password">
-            Confirm Password
+            Confirmar contraseña
           </label>
           <Input
             id="confirm-password"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="Confirm your password"
+            placeholder="Confirmar contraseña"
           />
         </div>
       </div>
@@ -222,7 +222,7 @@ const SignUpForm = ({ onSignUp }) => {
           type="submit"
           className="w-full bg-cyan-600 py-2 px-4 font-medium text-white hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-[#ffca2c] focus:ring-offset-2"
         >
-          Sign Up
+          Registrarse
         </Button>
       </div>
     </form>
